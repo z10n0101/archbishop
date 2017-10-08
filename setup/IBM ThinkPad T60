@@ -1,14 +1,22 @@
 WIFI Setup
 
-  ip link show wls3
-  ip link set wls3 up
-  iw dev wls3 link
-  iw dev wls3 scan | less
-  wpa_supplicant -B -i wls3 -c <(wpa_passphrase "<WIDI_SSID>" "<WIFI_PASS>")
-  iw dev wls3 link
-  dhcpcd wls3
+  Try:
+    #turn on
+    wpa_supplicant -B -i wls3 -c <(wpa_passphrase "<WIDI_SSID>" "<WIFI_PASS>")
+    dhcpcd wls3
+    
+  Else:
+
+    ip link show wls3
+    ip link set wls3 up
+    iw dev wls3 link
+    iw dev wls3 scan | less
+    wpa_supplicant -B -i wls3 -c <(wpa_passphrase "<WIDI_SSID>" "<WIFI_PASS>")
+    iw dev wls3 link
+    dhcpcd wls3
   
   
 TIME
 
   timedatectl set-timezone Europe/Belgrade
+  timedatectl set-ntp true
